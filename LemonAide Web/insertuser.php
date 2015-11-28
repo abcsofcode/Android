@@ -5,9 +5,10 @@ $db = new DB_Functions();
 
 $emailID = $_POST["emailId"];
 $passwordID = $_POST["passwordId"];
-$nameID = $_POST["emailId"];
+$nameID = $_POST["nameId"];
 $regId = $_POST["regId"];
-$res = $db->insertUser($emailID, $passwordID, $nameID, $regId);
+$type = "android";
+$res = $db->insertUser($emailID, $passwordID, $nameID, $regId, $type);
 
 /*
 $emailID = "name@email.com";

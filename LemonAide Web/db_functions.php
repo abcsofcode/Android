@@ -16,11 +16,11 @@ class DB_Functions {
     }
     /**
      * Insert new user
-     * 
+     *  
      */
-    public function insertUser($emailId, $password, $nameId, $gcmRegId) {
+    public function insertUser($emailId, $password, $nameId, $gcmRegId, $type) {
         // Insert user into database
-        $result = mysql_query("INSERT INTO users (username,email,password,push_id) VALUES('$nameId','$emailId','$password','$gcmRegId')");        
+        $result = mysql_query("INSERT INTO users (username,email,password,push_id,type) VALUES('$nameId','$emailId','$password','$gcmRegId','$type')");        
         if ($result) {
             return true;
         } else {             

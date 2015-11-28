@@ -3,6 +3,7 @@ package abcsofcode.com.lemonaide;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -64,14 +65,16 @@ public class MainActivity extends Activity {
 
         //if this is filled in, move on to second activity
 
-        /*
+        //Log.e("ARDELL", "regId = " + registrationId);
+
+
         if (!TextUtils.isEmpty(registrationId)) {
-            Intent i = new Intent(applicationContext, GreetingActivity.class);
+            Intent i = new Intent(applicationContext, ProfileActivity.class);
             i.putExtra("regId", registrationId);
             startActivity(i);
             finish();
         }
-        */
+
 
     }
 
@@ -182,12 +185,12 @@ public class MainActivity extends Activity {
                         Toast.makeText(applicationContext,
                                 "Reg Id shared successfully with Web App ",
                                 Toast.LENGTH_LONG).show();
-                        /*
+
                         Intent i = new Intent(applicationContext,
-                                GreetingActivity.class);
+                                ProfileActivity.class);
                         i.putExtra("regId", regId);
                         startActivity(i);
-                        */
+
                         finish();
                     }
 
