@@ -28,6 +28,19 @@ class DB_Functions {
         }
     }
     /**
+     * Insert new car
+     *  
+     */
+    public function insertCar($userID, $makeID, $modelID, $yearID) {
+        // Insert car into database
+        $result = mysql_query("INSERT INTO user_vehicles (user_id,year,make,model) VALUES('$userID','$yearID','$makeID','$modelID')");        
+        if ($result) {
+            return true;
+        } else {             
+            return false;                     
+        }
+    }
+    /**
      * Select all user
      * 
      */

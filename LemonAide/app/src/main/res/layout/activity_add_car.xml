@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".AddCarActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,54 +16,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="50dp"
-            android:text="LemonAide Sign Up"
+            android:text="Add Car"
+            android:paddingBottom="10dp"
             android:gravity="center"
             android:id="@+id/regTitleTxt" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo"
-            android:gravity="center_horizontal"
-            android:id="@+id/regImg" />
+
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="First Name"
+            android:hint="Make"
             android:textColor="#6d6e71"
             android:paddingBottom="8dp"
             android:textColorHint="#f7941e"
-            android:id="@+id/firstName" />
+            android:id="@+id/carMake" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="Email"
+            android:hint="Model"
             android:textColor="#6d6e71"
             android:ems="10"
             android:paddingBottom="8dp"
             android:textColorHint="#f7941e"
-            android:id="@+id/email" />
+            android:id="@+id/carModel" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Password"
-            android:textColorHint="#f7941e"
             android:textColor="#6d6e71"
+            android:hint="Year"
+            android:inputType="number"
+            android:textColorHint="#f7941e"
             android:ems="10"
-            android:id="@+id/password" />
+            android:id="@+id/carYear" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="Save Car"
             android:id="@+id/regBtn"
-            android:onClick="clickRegBtn"
+            android:onClick="clickSaveBtn"
             android:textColor="#f7941e" />
 
     </LinearLayout>

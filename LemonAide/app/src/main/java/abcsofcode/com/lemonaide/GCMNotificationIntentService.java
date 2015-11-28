@@ -47,7 +47,7 @@ public class GCMNotificationIntentService extends IntentService {
     }
 
     private void sendNotification(String greetMsg) {
-        Intent resultIntent = new Intent(this, ProfileActivity.class);
+        Intent resultIntent = new Intent(this, AlertActivity.class);
         resultIntent.putExtra("greetjson", greetMsg);
         resultIntent.setAction(Intent.ACTION_MAIN);
         resultIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -60,8 +60,8 @@ public class GCMNotificationIntentService extends IntentService {
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         mNotifyBuilder = new NotificationCompat.Builder(this)
-                .setContentTitle("Alert")
-                .setContentText("You've received new messages.")
+                .setContentTitle("Recall Alert")
+                .setContentText("Your automobile has been recalled")
                 .setSmallIcon(R.mipmap.ic_launcher);
         // Set pending intent
         mNotifyBuilder.setContentIntent(resultPendingIntent);
@@ -74,7 +74,7 @@ public class GCMNotificationIntentService extends IntentService {
 
         mNotifyBuilder.setDefaults(defaults);
         // Set the content for Notification
-        mNotifyBuilder.setContentText("New message from Server");
+        mNotifyBuilder.setContentText("Your automobile has been recalled");
         // Set autocancel
         mNotifyBuilder.setAutoCancel(true);
         // Post a notification

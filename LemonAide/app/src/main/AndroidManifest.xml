@@ -36,13 +36,11 @@
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver
             android:name=".GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -53,7 +51,14 @@
 
         <service android:name=".GCMNotificationIntentService" />
 
+        <activity
+            android:name=".AlertActivity"
+            android:label="@string/title_activity_alert"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddCarActivity"
+            android:label="@string/title_activity_add_car"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-
 
 </manifest>

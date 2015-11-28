@@ -187,7 +187,7 @@ public class MainActivity extends Activity {
                                 Toast.LENGTH_LONG).show();
 
                         Intent i = new Intent(applicationContext,
-                                ProfileActivity.class);
+                                AlertActivity.class);
                         i.putExtra("regId", regId);
                         startActivity(i);
 
