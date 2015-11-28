@@ -182,12 +182,14 @@ public class MainActivity extends Activity {
                         if (prgDialog != null) {
                             prgDialog.dismiss();
                         }
+
+                        //maybe I can get this to send back the newly created user id?
                         Toast.makeText(applicationContext,
                                 "Reg Id shared successfully with Web App ",
                                 Toast.LENGTH_LONG).show();
 
                         Intent i = new Intent(applicationContext,
-                                AlertActivity.class);
+                                ProfileActivity.class);
                         i.putExtra("regId", regId);
                         startActivity(i);
 

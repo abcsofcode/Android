@@ -3,6 +3,7 @@ package abcsofcode.com.lemonaide;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -110,14 +111,13 @@ public class AddCarActivity extends Activity {
                         Toast.makeText(applicationContext,
                                 "Shared on web app ",
                                 Toast.LENGTH_LONG).show();
-                        /*
+
                         Intent i = new Intent(applicationContext,
-                                AlertActivity.class);
-                        i.putExtra("regId", regId);
+                                ProfileActivity.class);
                         startActivity(i);
 
                         finish();
-                        */
+
                     }
 
                     @Override
