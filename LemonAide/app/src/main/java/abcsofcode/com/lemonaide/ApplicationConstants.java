@@ -1,0 +1,13 @@
+package abcsofcode.com.lemonaide;
+
+public interface ApplicationConstants {
+
+    // Php Application URL to store Reg ID created
+    static final String APP_SERVER_URL = "http://hackathon.bobwhite.ca/android/insertuser.php";
+    //static final String APP_SERVER_URL = "http://hackathon.bobwhite.ca/GCM/gcm.php?shareRegId=true";
+
+    // Google Project Number
+    static final String GOOGLE_PROJ_ID = "521918807234";
+    static final String MSG_KEY = "m";
+
+}
