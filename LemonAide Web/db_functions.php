@@ -56,5 +56,13 @@ class DB_Functions {
          $result = mysql_query("SELECT push_id FROM users WHERE email = "."'$emailID'");
          return $result;
     }
+    /**
+     * Get user ID
+     * 
+     */
+    public function getUserID($emailID){
+         $result = mysql_query("SELECT id FROM users WHERE email = "."'$emailID'");
+         return $result;
+    }
 }
 ?>
