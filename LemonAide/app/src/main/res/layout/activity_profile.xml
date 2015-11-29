@@ -32,7 +32,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Car"
+        android:text="Add Vehicle"
         android:id="@+id/addBtn"
         android:onClick="clickAddBtn"
         android:textColor="#f7941e" />

@@ -20,6 +20,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -37,6 +38,7 @@ public class MainActivity extends Activity {
     public static final String NAME_ID = "nameId";
     public static final String REG_ID = "regId";
     public static final String EMAIL_ID = "emailId";
+    public static final String USER_ID = "userId";
     EditText emailET;
     EditText nameET;
     EditText passwordET;
@@ -64,9 +66,6 @@ public class MainActivity extends Activity {
         String registrationId = prefs.getString(REG_ID, "");
 
         //if this is filled in, move on to second activity
-
-        //Log.e("ARDELL", "regId = " + registrationId);
-
 
         if (!TextUtils.isEmpty(registrationId)) {
             Intent i = new Intent(applicationContext, ProfileActivity.class);
@@ -148,6 +147,7 @@ public class MainActivity extends Activity {
 
     // Store RegId and Email entered by User in SharedPref
     private void storeRegIdinSharedPref(Context context, String regId, String emailID, String nameID, String passwordID) {
+
         SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(REG_ID, regId);
@@ -176,6 +176,23 @@ public class MainActivity extends Activity {
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                         // When the response returned by REST has Http
                         // response code '200'
+
+
+                        try {
+                            String userID = new String(responseBody, "UTF-8"); // for UTF-8 encoding
+                            SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString(USER_ID, userID);
+                            editor.commit();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+
+                            SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString(USER_ID, "0");
+                            editor.commit();
+
+                        }
 
                         // Hide Progress Dialog
                         prgDialog.hide();
@@ -231,6 +248,8 @@ public class MainActivity extends Activity {
                 });
 
     }
+
+
 
     // Check if Google Playservices is installed in Device or not
     private boolean checkPlayServices() {

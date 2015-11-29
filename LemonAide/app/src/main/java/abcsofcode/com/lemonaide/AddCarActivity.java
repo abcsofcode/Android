@@ -31,6 +31,8 @@ public class AddCarActivity extends Activity {
     public static final String MAKE_ID = "makeId";
     public static final String MODEL_ID = "modelId";
     public static final String YEAR_ID = "yearId";
+    public static final String USER_ID = "userId";
+    public static final String CAR_LIST = "carList";
 
 
     @Override
@@ -49,7 +51,6 @@ public class AddCarActivity extends Activity {
         // Set Cancelable as False
         prgDialog.setCancelable(false);
 
-        //selectable items from lists? or nah for today??
     }
 
     public void clickSaveBtn(View view) {
@@ -58,10 +59,14 @@ public class AddCarActivity extends Activity {
         String modelID = modelET.getText().toString();
         String yearID = yearET.getText().toString();
 
+        SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        String userID = prefs.getString(USER_ID, "");
+
+
         if (!TextUtils.isEmpty(makeID) && !TextUtils.isEmpty(modelID) && !TextUtils.isEmpty(yearID)) {
 
             // Register Device in GCM Server
-            storeRegIdinSharedPref(applicationContext, makeID, modelID, yearID);
+            storeRegIdinSharedPref(applicationContext, makeID, modelID, yearID, userID);
 
         }
         else {
@@ -72,27 +77,35 @@ public class AddCarActivity extends Activity {
     }
 
     // Store RegId and Email entered by User in SharedPref
-    private void storeRegIdinSharedPref(Context context, String makeID, String modelID, String yearID) {
-
+    private void storeRegIdinSharedPref(Context context, String makeID, String modelID, String yearID, String userID) {
         SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(MAKE_ID, makeID);
-        editor.putString(MODEL_ID, modelID);
-        editor.putString(YEAR_ID, yearID);
+
+        String carToAdd = makeID + " " + modelID + " " + yearID;
+        String currentCarList = prefs.getString(CAR_LIST, "");
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(currentCarList);
+        sb.append("\n");
+        sb.append(carToAdd);
+        String carList = String.valueOf(sb);
+
+        editor.putString(CAR_LIST, carList);
         editor.commit();
 
-        storeRegIdinServer(makeID, modelID, yearID);
+        storeRegIdinServer(makeID, modelID, yearID, userID);
 
     }
 
     // Share RegID and Email ID with GCM Server Application (Php)
-    private void storeRegIdinServer(String makeID, String modelID, String yearID) {
+    private void storeRegIdinServer(String makeID, String modelID, String yearID, String userID) {
 
         prgDialog.show();
         params.put("makeId", makeID);
         params.put("modelId", modelID);
         params.put("yearId", yearID);
-        System.out.println("Make = " + makeID + " Model = " + modelID + " Year = " + yearID);
+        params.put("userId", userID);
+        System.out.println("Make = " + makeID + " Model = " + modelID + " Year = " + yearID + " User = " + userID);
         // Make RESTful webservice call using AsyncHttpClient object
         AsyncHttpClient client = new AsyncHttpClient();
         client.post(ApplicationConstants.CAR_ADD_URL, params,
@@ -155,6 +168,5 @@ public class AddCarActivity extends Activity {
                 });
 
     }
-
 
 }

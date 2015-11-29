@@ -57,6 +57,7 @@
     } 
 	// JSON Msg to be transmitted to selected Users
 	$message = array("m" => $respJson);  
+
 	$pushsts = sendPushNotificationToGCM($registation_ids, $message); 
 	$resp = $resp."<tr><td>".$pushsts."</td></tr>";
 	echo "<table>".$resp."</table>";
