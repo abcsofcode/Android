@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#272B30"
     tools:context=".AddCarActivity">
 
     <LinearLayout
@@ -16,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="50dp"
-            android:text="Add Car"
+            android:textColor="#CFD600"
+            android:text="Add Vehicle"
             android:paddingBottom="10dp"
             android:gravity="center"
             android:id="@+id/regTitleTxt" />
@@ -26,30 +28,31 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
             android:hint="Make"
-            android:textColor="#6d6e71"
+            android:textColor="#C8C8C8"
             android:paddingBottom="8dp"
-            android:textColorHint="#f7941e"
+            android:textColorHint="#CFD600"
             android:id="@+id/carMake" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
             android:hint="Model"
-            android:textColor="#6d6e71"
-            android:ems="10"
+            android:textColor="#C8C8C8"
             android:paddingBottom="8dp"
-            android:textColorHint="#f7941e"
+            android:textColorHint="#CFD600"
             android:id="@+id/carModel" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6d6e71"
-            android:hint="Year"
             android:inputType="number"
-            android:textColorHint="#f7941e"
-            android:ems="10"
+            android:hint="Year"
+            android:textColor="#C8C8C8"
+            android:paddingBottom="8dp"
+            android:textColorHint="#CFD600"
             android:id="@+id/carYear" />
 
         <Button
@@ -58,7 +61,8 @@
             android:text="Save Car"
             android:id="@+id/regBtn"
             android:onClick="clickSaveBtn"
-            android:textColor="#f7941e" />
+            android:background="#32383E"
+            android:textColor="#CFD600" />
 
     </LinearLayout>
 </LinearLayout>

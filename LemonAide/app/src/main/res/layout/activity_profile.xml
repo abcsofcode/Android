@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#272B30"
     tools:context=".ProfileActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
+        android:textColor="#CFD600"
         android:textSize="50dp"
         android:id="@+id/profileName"
         android:gravity="center"
@@ -26,6 +28,7 @@
         android:layout_alignParentEnd="true"
         android:paddingLeft="5dp"
         android:paddingBottom="10dp"
+        android:textColor="#C8C8C8"
 
         android:id="@+id/profileCar" />
 
@@ -35,6 +38,7 @@
         android:text="Add Vehicle"
         android:id="@+id/addBtn"
         android:onClick="clickAddBtn"
-        android:textColor="#f7941e" />
+        android:background="#32383E"
+        android:textColor="#CFD600" />
 
 </LinearLayout>

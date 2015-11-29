@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#272B30"
     tools:context=".AlertActivity">
 
     <LinearLayout
@@ -38,6 +39,7 @@
                 android:layout_height="fill_parent"
                 android:layout_marginBottom="40dp"
                 android:gravity="center"
+                android:textColor="#C8C8C8"
                 android:text="Message will appear here after push"
                 android:textSize="20sp" />
 

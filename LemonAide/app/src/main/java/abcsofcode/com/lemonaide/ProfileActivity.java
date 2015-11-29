@@ -14,11 +14,11 @@ public class ProfileActivity extends Activity {
     TextView tvCar;
 
     public static final String NAME_ID = "nameId";
-    public static final String EMAIL_ID = "emailId";
+    //public static final String EMAIL_ID = "emailId";
     public static final String CAR_LIST = "carList";
-    public static final String MAKE_ID = "makeId";
-    public static final String MODEL_ID = "modelId";
-    public static final String YEAR_ID = "yearId";
+    //public static final String MAKE_ID = "makeId";
+    //public static final String MODEL_ID = "modelId";
+    //public static final String YEAR_ID = "yearId";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,11 @@ public class ProfileActivity extends Activity {
 
 
         tvName = (TextView) findViewById(R.id.profileName);
-        tvName.setText("Hello, " + name);
+        tvName.setText("Hello " + name + "!");
 
         //display car to monitor
         tvCar = (TextView) findViewById(R.id.profileCar);
-        tvCar.setText("Cars monitored: \n\n" + carList);
+        tvCar.setText("Cars monitored: \n" + carList);
 
 
 
